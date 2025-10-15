@@ -1,126 +1,266 @@
-* {
-    box-sizing: border-box;
-margin: 0;
+/* --- Общий стиль страницы --- */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("./numbers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Основной контейнер приложения --- */
+.app-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Главное меню, настройки, игровое поле --- */
+.menu-screen,
+.game-screen,
+.settings-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+/* --- Название игры --- */
+.game-title {
+  background-color: #10043f;
+  height: 80px;
+  width: 700px;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #5716d1;
+}
+
+/* --- Кнопки меню и возврата --- */
+.menu-btn {
+  padding: 15px 35px;
+  margin: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: #10043f;
+  box-shadow: 0 5px 15px rgba(16, 0, 31, 0.4);
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #5716d1;
+}
+.menu-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(16, 1, 31, 0.9);
+}
+.back-btn {
+  margin-top: 20px;
+}
+
+/* --- Главный контейнер игры --- */
+.main-wrapper {
+  background: rgba(8, 12, 245, 0.7); /* полупрозрачный фиолетовый */
+  padding: 20px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+/* --- Внутренний блок — «карточка» игры --- */
+.inner-wrapper {
+  background: #10043f; /* полупрозрачный белый */
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Заголовок игры --- */
+.h1 {
+  text-align: center;
+  color: #fafafc;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* --- Текст описания --- */
+.text {
+  text-align: center;
+  color: #fcfafb;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* --- Блок ввода и кнопка --- */
+.cheekNum {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+  color: #f9f8fa;
+  text-align: center;
+  line-height: 1;
+  gap: 15px;
+}
+
+.gussField {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  font-size: 1em;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+  background-color: #fcfafa;
+}
+
+.gussField:focus {
+  border-color: #090685;
+  box-shadow: 0 0 8px rgba(6, 3, 58, 0.5);
+  outline: none;
+}
+
+/* --- Кнопка отправки --- */
+.guessSubmit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #14d8ce, #5d3fd3);
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(16, 0, 31, 0.4);
+}
+.guessSubmit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(16, 1, 31, 0.6);
+}
+
+/* --- Блок результатов --- */
+.resultParas {
+  background: linear-gradient(45deg, #14d8ce, #255caf);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(98, 43, 226, 0.1);
+  transition: background 0.3s ease;
+}
+
+.resultParas p {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #10043f;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+/* --- Обычная ошибка --- */
+.lastResult.lose {
+  background: #ffffff;
+  color: #b71c1c;
+  border-radius: 12px;
+  padding: 10px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- Победа --- */
+.lastResult.win {
+  height: 45px;
+  display: flex;
+  justify-content: center;
+   border: 1px solid #ccc; 
+  background: linear-gradient(45deg, #40f546, #88f709, #01ff09);
+  background-size: 300% 300%;
+  color: white;
+  border-radius: 12px;
+  font-size: large;
+  text-align: center;
+  align-items: center;
+  animation: sparkle 1s infinite linear;
+}
+
+/* --- Анимация блесток --- */
+@keyframes sparkle {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  body {
-    background-color: rgb(241, 189, 239);
-    background-image: url(./22.jpg);
-    background-size: cover;
-    padding: 160px 60px 60px 60px;
-    margin: 0;
-    width: 100%;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  .main-wrapper {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px;
-  
+  100% {
+    background-position: 0% 50%;
   }
-  
-  .section1, .section2 {
-    width: 48%;
+}
+
+/* --- Проигрыш GAME OVER мигает --- */
+.lastResult.gameover {
+  color: white;
+  background: #fa3532;
+  border-radius: 12px;
+  animation: loseBlink 0.8s infinite alternate;
+}
+@keyframes loseBlink {
+  0% {
+    background-color: #e53935;
   }
-  
-  .section1 {
-    margin-bottom: 20px;
-    padding-top: 20px;
+  50% {
+    background-color: #b71c1c;
   }
-  
-  .h1 {
-    color: rgb(254, 252, 255);
-    text-align: center;
+  100% {
+    background-color: #e53935;
   }
-  
-  .text {
-    font-size: large;
-    font-style: normal;
-    color: rgb(249, 245, 251);
-    text-align: center;
+}
+
+/* --- Кнопка Start New Game --- */
+.myButton {
+  padding: 12px 25px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: #040272;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-shadow: 0 0 5px #5c5959, 0 0 10px #c9c6c6;
+  box-shadow: 0 0 10px #140025, 0 0 20px #5d3fd3;
+  transition: all 0.3s ease;
+}
+.myButton:hover {
+  box-shadow: 0 0 20px #3d2be2, 0 0 40px #5d3fd3, 0 0 60px #b266ff;
+  transform: translateY(-2px);
+}
+
+/* --- Анимация появления текста --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .cheekNum {
-    display: flex;
-    color: rgb(250, 248, 250);
-    padding: 15px 15px;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    font-size: large;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .gussField {
-    width: 70px;
-    height: 50px;
-    margin: 0 20px;
-    font-size: 22px;
-    text-align: center;
-    border-color: rgb(97, 3, 88);
-    border-radius: 15px;
-    color: rgb(107, 5, 61); 
-    background-color: white;
-  }
-  
-  .guessSubmit {
-    width: 150px;
-    height: 50px;
-    color: rgb(96, 5, 181);
-    background-color: rgb(253, 254, 255);
-    border-radius: 15px;
-    border-color: blueviolet;
-  }
-  
-  .lastResult,
-  .guesses,
-  .lowOrHi {
-    color: rgb(99, 3, 75);
-    padding: 13px;
-    border-radius: 15px;
-    background-color: beige;
-    font-size: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 30px;
-    height: auto;
-    width: 100%;
-    margin: 5px 0;
-  }
-  
-  @media (max-width: 768px) {
-    .main-wrapper {
-      flex-direction: column;
-      padding: 20px;
-    }
-  
-    .section1, .section2 {
-      width: 100%;
-    }
-  
-    .cheekNum {
-      flex-direction: column;
-    }
-  
-    .gussField {
-      width: 40px;
-      height: 40px;
-      font-size: 28px;
-    }
-  
-    .guessSubmit {
-      width: 120px;
-      height: 40px;
-    }
-  
-    .text, .h1 {
-      font-size: 18px;
-    }
-  }
+}
+.resultParas p {
+  animation: fadeIn 0.5s ease forwards;
+}

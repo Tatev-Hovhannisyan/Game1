@@ -1,38 +1,67 @@
- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Number guessing game</title>
-        <link rel="stylesheet" href="Game1.CSS">
-        <style> </style>
-    </head>
-   
-    <body>
-        <div class="main-wrapper">
-          <div class="section1">
-            <h1 class="h1"><strong>Number guessing game</strong></h1>
-            <p class="text">We have selected a random number between 1 and 100.<br>
-              See if you can guess it in 10 turns or fewer.<br>
-              We'll tell you if your guess was too high or too low.
-            </p>
-          </div>
-      
-          <div class="section2">
-            <div class="cheekNum">
-              <label>Enter a guess:</label>
-              <input type="number" class="gussField">
-              <input type="submit" value="Submit guess" class="guessSubmit">
-            </div>
-      
-            <div class="resultParas" id="container">
-              <p class="guesses"></p>
-              <p class="lastResult"></p>
-              <p class="lowOrHi"></p>
-            </div>
-          </div>
-        </div>
-      
-        <script src="Game1.js"></script>
-      </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="Game1.css">
+</head>
+<body>
+    <div class="app-wrapper">
 
+        <!-- Главное меню -->
+        <div class="menu-screen" id="menuScreen">
+            <h1 class="game-title">Number Guessing Game</h1>
+            <div class="menu-buttons">
+                <button id="playBtn" class="menu-btn">Play</button>
+                <button id="settingsBtn" class="menu-btn">Settings</button>
+            </div>
+        </div>
+
+        <!-- Игровое поле -->
+        <div class="game-screen" id="gameScreen" style="display:none;">
+            <div class="main-wrapper">
+                <div class="inner-wrapper">
+                    <div class="section1">
+                        <h1 class="h1"><strong>Number guessing game</strong></h1>
+                        
+                    </div>
+
+                    <div class="section2">
+                        <div class="cheekNum">
+                            <label>Enter a guess:</label>
+                            <input type="number" class="gussField">
+                            <input type="submit" value="Submit guess" class="guessSubmit">
+                        </div>
+
+                        <div class="resultParas" id="container">
+                            <p class="guesses"></p>
+                            <p class="lastResult"></p>
+                            <p class="lowOrHi"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="backMenu" class="menu-btn back-btn">Back to Menu</button>
+        </div>
+
+        <!-- Правила игры -->
+        <div class="settings-screen" id="settingsScreen" style="display:none;">
+            <div class="main-wrapper">
+                <div class="inner-wrapper">
+                    <h2>Rules of the Game</h2>
+                    <ul>
+                        <li>Guess a number between 1 and 100.</li>
+                        <li>You have 10 attempts to guess the number.</li>
+                        <li>After each guess, you will be told if the number is higher or lower.</li>
+                        <li>Good luck!</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="backMenuFromSettings" class="menu-btn back-btn">Back to Menu</button>
+        </div>
+
+    </div>
+
+<script src="Game1.js"></script>
+</body>
 </html>
