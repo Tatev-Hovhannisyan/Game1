@@ -264,3 +264,58 @@ body {
 .resultParas p {
   animation: fadeIn 0.5s ease forwards;
 }
+
+
+/* 📱 Увеличение размеров на телефонах */
+@media (max-width: 600px) {
+  .game-title {
+    width: 90%;
+    font-size: 3.5em;
+    height: 100px;
+  }
+
+  .main-wrapper {
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 30px;
+  }
+
+  .inner-wrapper {
+    padding: 40px;
+    border-radius: 25px;
+  }
+
+  .h1 {
+    font-size: 2.5em;
+  }
+
+  .text {
+    font-size: 1.2em;
+  }
+
+  .cheekNum {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gussField,
+  .guessSubmit {
+    font-size: 1.3em;
+    padding: 15px 25px;
+  }
+
+  .menu-btn,
+  .myButton {
+    font-size: 1.4em;
+    padding: 18px 40px;
+  }
+
+  .resultParas p {
+    font-size: 1.3em;
+  }
+
+  .lastResult.win {
+    font-size: 1.5em;
+    height: 60px;
+  }
+}
