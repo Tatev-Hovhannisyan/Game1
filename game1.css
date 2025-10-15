@@ -36,10 +36,10 @@ body {
 
 .game-title {
   background: linear-gradient(135deg, #0d023b, #190280, #462be2);
-  height: auto; /* раньше было фиксировано 180px */
+  height: 400px; /* раньше было фиксировано 180px */
   min-height: 80px; /* минимум для больших экранов */
   width: 90%; /* адаптивная ширина */
-  max-width: 700px; /* ограничение для больших экранов */
+  max-width: 900px; /* ограничение для больших экранов */
   display: flex;
   justify-content: center;
   align-items: center;
