@@ -31,19 +31,55 @@ body {
   flex-direction: column;
   align-items: center;
   color: #fff;
+  font-size: large;
 }
 
-/* --- Название игры --- */
 .game-title {
-  background-color: #10043f;
-  height: 80px;
-  width: 700px;
+  background: linear-gradient(135deg, #0d023b, #190280, #462be2);
+  height: auto; /* раньше было фиксировано 180px */
+  min-height: 80px; /* минимум для больших экранов */
+  width: 90%; /* адаптивная ширина */
+  max-width: 700px; /* ограничение для больших экранов */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 3em;
-  color: #fff;
+  font-size: clamp(1.5em, 4vw, 3em); /* текст масштабируется автоматически */
   margin-bottom: 30px;
-  text-shadow: 0 0 10px #5716d1;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(35, 35, 36, 0.4);
 }
+
+.game-title::after {
+  content: "Number Guessing Game"; /* тот же текст */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #fff, #2f09b9, #fff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
 
 /* --- Кнопки меню и возврата --- */
 .menu-btn {
@@ -55,7 +91,7 @@ body {
   border: none;
   cursor: pointer;
   color: #fff;
-  background: #10043f;
+  background: linear-gradient(135deg, #0d023b, #190280, #462be2);
   box-shadow: 0 5px 15px rgba(16, 0, 31, 0.4);
   transition: all 0.3s ease;
   text-shadow: 0 0 10px #5716d1;
@@ -64,8 +100,11 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(16, 1, 31, 0.9);
 }
+
 .back-btn {
   margin-top: 20px;
+  font-size: clamp(1em, 4vw, 1.2em); /* адаптивный размер текста кнопки */
+  padding: 12px 25px; /* можно увеличить на мобильных */
 }
 
 /* --- Главный контейнер игры --- */
@@ -76,8 +115,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
 }
@@ -88,6 +128,7 @@ body {
   padding: 30px;
   border-radius: 20px;
   width: 100%;
+  height: 350px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
   display: flex;
@@ -101,6 +142,7 @@ body {
   color: #fafafc;
   font-size: 2em;
   margin-bottom: 20px;
+  
 }
 
 /* --- Текст описания --- */
@@ -269,20 +311,25 @@ body {
 /* 📱 Увеличение размеров на телефонах */
 @media (max-width: 600px) {
   .game-title {
-    width: 90%;
-    font-size: 3.5em;
-    height: 100px;
+    font-size: clamp(1.8em, 6vw, 3.5em); /* текст увеличивается пропорционально */
+    min-height: 70px; /* меньше для узких экранов */
+  }
+
+  .back-btn {
+    display: block;
+    padding: 15px 30px;
+    font-size: 1.3em;
   }
 
   .main-wrapper {
-    max-width: 90%;
-    padding: 30px;
-    border-radius: 30px;
+    width: 95%; /* меньше поля для узких экранов */
+    height: auto; /* высота под контент */
+    padding: 20px;
   }
 
   .inner-wrapper {
-    padding: 40px;
-    border-radius: 25px;
+    padding: 20px;
+    height: auto;
   }
 
   .h1 {
